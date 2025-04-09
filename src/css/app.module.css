@@ -1,0 +1,7 @@
+@import"./reset.css";
+@import"./vars.css";
+@import"./pattern.css";
+
+body {
+  font-family: "EastmanTrial", Arial, Helvetica, sans-serif;
+}

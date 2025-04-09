@@ -1,6 +1,6 @@
 // import { BrowserRouter } from "react-router-dom";
-// импортируем стили Css
-// import AppCss from "./mozilor.css/main.module.css";
+// подключаем стили Css
+import reset from "./css/app.module.css";
 // импортируем Heaader
 // import Header from "./components/header/Header";
 // import Main from "./components/main/Main";
