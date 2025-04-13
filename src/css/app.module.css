@@ -2,6 +2,28 @@
 @import"./vars.css";
 @import"./pattern.css";
 
+/* fonts */
+@font-face {
+  font-family: 'Aeroport Mono';
+  src: url('./../fonts/aeroportmono.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Eastman Trial';
+    src: url('./../fonts/EastmanTrial-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Eastman Trial';
+    src: url('./../fonts/EastmanTrial-Medium.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Eastman Trial';
+    font-weight: bold;
+    src: url('./../fonts/EastmanTrial-Regular.otf') format('opentype');
+}
+/* fonts */
+
 body {
   font-family: "EastmanTrial", Arial, Helvetica, sans-serif;
 }
