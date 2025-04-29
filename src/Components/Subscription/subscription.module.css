@@ -187,13 +187,7 @@ hr {
   -ms-transform: rotate(360deg);
   -o-transform: rotate(360deg);
 }
-/* поле формы */
-/* .container {
-  padding: 20px;
-} */
 
-/* input[type="e-mail"],
-input[type="password"] { */
 input {
   width: 100%;
   padding: 10px;
@@ -207,8 +201,24 @@ input:focus {
 }
 input[type="checkbox"] {
   margin-top: 20px;
+  margin-left: -58px;
 }
-
+/* для того, чтобы правильно выстроить label и input в React (потому что в React нельзя просто добавить текст в input (см разметку)) надо писать CSS-свойства как показано ниже */
+.check label {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.check input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  cursor: pointer; /* Меняем курсор на "руку" при наведении */
+}
+.check span {
+  font-size: 14px;
+  user-select: none; /* Запрещаем выделение текста */
+}
 label {
   color: red;
   font-size: 20px;
