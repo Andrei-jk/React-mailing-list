@@ -15,10 +15,12 @@
   left: 0;
   width: 105%;
   height: 100%;
-  /* background: rgb(24, 181, 220); */
-
-/* background: rgb(21, 182, 142); */
-background: linear-gradient(131.38deg, rgb(21, 182, 142) 8.558%,rgb(24, 181, 220) 87.986%);
+  /* background: rgb(21, 182, 142); */
+  background: linear-gradient(
+    131.38deg,
+    rgb(21, 182, 142) 8.558%,
+    rgb(24, 181, 220) 87.986%
+  );
   border-radius: 10px;
   z-index: -1;
   transition: 0.6s ease;
@@ -41,8 +43,8 @@ background: linear-gradient(131.38deg, rgb(21, 182, 142) 8.558%,rgb(24, 181, 220
 .menu {
   position: fixed;
   width: 100%;
-  height: 0;
   /*Начальная высота*/
+  height: 0;
   top: 0;
   left: 0;
   background: linear-gradient(
@@ -82,9 +84,9 @@ background: linear-gradient(131.38deg, rgb(21, 182, 142) 8.558%,rgb(24, 181, 220
   font-size: 45px;
   /* font-size: clamp(41px, 2.426rem + 0.69vw, 52px); */
   color: white;
-    /* width: clamp(50px, 10vw, 100px); Адаптивная ширина */
+  /* width: clamp(50px, 10vw, 100px); Адаптивная ширина */
   /* height: clamp(50px, 10vh, 100px); Адаптивная высота */
-  
+
   /* display: flex; Для выравнивания содержимого */
   /* align-items: center; Вертикальное выравнивание текста */
   /* justify-content: center; Горизонтальное выравнивание текста */
