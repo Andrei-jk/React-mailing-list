@@ -28,7 +28,7 @@ const Subscription = () => {
       {/* ссылка-КНОПКА, которая открывает подписку на рассылку и на нее вешаем onClick, который вызовет ф openMenu */}
       <button
         // className={subCss.subBtn}
-        className={`${subCss.subBtn} ${isOpen ? subCss.disappear :""}`}
+        className={`${subCss.subBtn} ${isOpen ? subCss.disappear : ""}`}
         id="sign__up"
         onClick={openMenu}
       >
@@ -166,7 +166,56 @@ html
               </label>
               <div className={subCss.agree}>
                 <p>
-                  I agree <a href="#">Policy</a>
+                  I agree{" "}
+                  <a href="https://gurucontext.ru/privacy-generator?ysclid=ma2bnr7tva521508702" target="_blank" rel="noopener noreferrer">
+                    Policy
+                  </a>
+                  {/* 
+//                   Чтобы ссылка открывалась в новом окне, нужно добавить атрибут target="_blank". В вашем коде это нужно сделать для элементов <a>. Вот как это выглядит:
+// Для навигационного меню (из вашего кода):
+// jsx
+// Copy
+
+// <ul className={navCss.list__menu}>
+//   <li>
+//     <a href="#!" target="_blank" rel="noopener noreferrer">о нас</a>
+//   </li>
+//   <li>
+//     <a href="#!" target="_blank" rel="noopener noreferrer">будь в курсе</a>
+//   </li>
+  // {/* ... и так для всех ссылок ... */}
+{/* </ul> */}
+
+{/* Важные нюансы:
+
+    rel="noopener noreferrer" - обязательная добавка к target="_blank" для безопасности:
+
+        Защищает от уязвимостей типа window.opener
+
+        Предотвращает передачу referrer-информации
+
+    Где именно ставить:
+
+        В любом теге <a>, который должен открываться в новой вкладке
+
+        В вашем коде это все ссылки в navCss.list__menu
+
+    Для кнопок (если нужно):
+
+        Если у вас кнопка (<button>) должна открывать ссылку, лучше сделать так:
+    jsx
+    Copy */}
+
+    {/* <button onClick={() => window.open('https://example.com', '_blank')}>
+      Открыть в новом окне
+    </button>
+
+    Если ссылка ведёт на ваш же сайт:
+
+        Лучше не использовать target="_blank" (это плохо для UX и SEO)
+
+        Оставьте обычное поведение (открытие в текущей вкладке) */}
+                  {/* */}
                 </p>
               </div>
               <div className={subCss.btns}>

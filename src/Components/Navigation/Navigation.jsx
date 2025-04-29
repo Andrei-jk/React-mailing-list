@@ -70,19 +70,19 @@ const Navigation = () => {
         {/* пункты меню */}
         <ul className={navCss.list__menu}>
           <li>
-            <a href="#!">о нас</a>
+            <a href="#!"target="_blank" rel="noopener noreferrer">о нас</a>
           </li>
           <li>
-            <a href="#!">будь в курсе</a>
+            <a href="#!"target="_blank" rel="noopener noreferrer">будь в курсе</a>
           </li>
           <li>
-            <a href="#!">анонсы</a>
+            <a href="#!"target="_blank" rel="noopener noreferrer">анонсы</a>
           </li>
           <li>
-            <a href="#!">партнеры</a>
+            <a href="#!"target="_blank" rel="noopener noreferrer">партнеры</a>
           </li>
           <li>
-            <a href="#!">контакты</a>
+            <a href="#!"target="_blank" rel="noopener noreferrer">контакты</a>
           </li>
         </ul>
       </div>
