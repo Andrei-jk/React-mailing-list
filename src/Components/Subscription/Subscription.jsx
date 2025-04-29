@@ -4,8 +4,6 @@ import React, { useState } from "react";
 const Subscription = () => {
   // Используем хук useState для создания состояния isOpen, которое по умолчанию определяем как false. Это состояние будет определять, открыто ли меню.
   const [isOpen, setIsOpen] = useState(false);
-  // const [isOpen, setIsOpen] = useState(true);
-
   // создаем ф, которая будет открывать окно формы
   const openMenu = () => {
     //  Чтобы открыть окно, надо вызвать ф setIsOpen с параметром (true) Здесь вместо непосредственного вызова setIsOpen(true), мы используем requestAnimationFrame. Это позволяет браузеру выполнить обновления перед изменением состояния, что может помочь сделать анимации более плавными.
@@ -14,6 +12,36 @@ const Subscription = () => {
       setIsOpen(true);
     });
   };
+  // *************************************
+  //еще один useState для checkbox
+  const [remember, setRemember] = useState(false);
+  // создаем ф, которая будет управлять checkbox
+  const changeCheckbox = () => {
+    setRemember((prev) => !prev);
+  };
+  // Функциональное обновление состояния (prev => !prev) — это важный паттерн в React, который обеспечивает корректность и надёжность при обновлении состояния на основе предыдущего значения. Давайте разберём его подробно.
+// 1. Как работает обычное обновление состояния
+
+// Без функционального обновления можно сделать так:
+// js
+// Copy
+
+// onChange={() => setRemember(!remember)}
+
+
+// Если состояние (remember) обновляется асинхронно или в нескольких местах, React может использовать устаревшее (stale) значение, что приведёт к неправильному переключению.
+// 2. Как работает функциональное обновление
+// js
+// Copy
+
+// onChange={() => setRemember(prev => !prev)}
+
+// Здесь:
+
+//     prev — гарантированно актуальное предыдущее состояние на момент обновления.
+
+//     !prev — инвертирует это значение (true → false, false → true).
+  // *************************************
 
   // Чтобы закрыть окно, надо создать ф, которая будет закрывать окно формы
 
@@ -67,7 +95,6 @@ const Subscription = () => {
                 required
                 autoComplete="name"
               ></input>
-
               <label htmlFor="e-mail">E-mail</label>
               <input
                 type="email"
@@ -155,19 +182,25 @@ html
     Если пользователь пытается отправить форму, не заполнив обязательные поля, браузер отобразит сообщение об ошибке и не позволит отправить форму, пока все обязательные поля не будут заполнены.
     Пользователь увидит визуальные подсказки, такие как рамки или сообщения, указывающие на ошибку.
  */}
+
               <label htmlFor="remember">
                 <input
                   type="checkbox"
                   name="remember"
                   id="remember"
-                  checked
+                  checked={remember}
+                  onChange={changeCheckbox}
                 ></input>
                 remember me
               </label>
               <div className={subCss.agree}>
                 <p>
                   I agree{" "}
-                  <a href="https://gurucontext.ru/privacy-generator?ysclid=ma2bnr7tva521508702" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://gurucontext.ru/privacy-generator?ysclid=ma2bnr7tva521508702"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Policy
                   </a>
                   {/* 
@@ -184,9 +217,8 @@ html
 //     <a href="#!" target="_blank" rel="noopener noreferrer">будь в курсе</a>
 //   </li>
   // {/* ... и так для всех ссылок ... */}
-{/* </ul> */}
-
-{/* Важные нюансы:
+                  {/* </ul> */}
+                  {/* Важные нюансы:
 
     rel="noopener noreferrer" - обязательная добавка к target="_blank" для безопасности:
 
@@ -205,8 +237,7 @@ html
         Если у вас кнопка (<button>) должна открывать ссылку, лучше сделать так:
     jsx
     Copy */}
-
-    {/* <button onClick={() => window.open('https://example.com', '_blank')}>
+                  {/* <button onClick={() => window.open('https://example.com', '_blank')}>
       Открыть в новом окне
     </button>
 
