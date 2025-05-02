@@ -125,6 +125,8 @@ css
   -moz-transition: height 2.8s ease, opacity 0.8s ease;
   -ms-transition: height 2.8s ease, opacity 0.8s ease;
   -o-transition: height 2.8s ease, opacity 0.8s ease;
+     /* !ОЧЕНЬ ВАЖНО = свойство ниже добавляется модальному меню ОБЯЗАТЕЛЬНО, для того чтобы при малых экранах можно было добраться ко ВСЕМ пунктам мобильного меню  */
+   overflow: auto;
 }
 .subscription {
   padding: 20px;
@@ -265,3 +267,10 @@ label {
 .sign__btn:active {
   transform: translateY(10px);
 }
+  /* описываем класс lock, который добавляется к body, для отмены скрола при открытом модальном меню */
+  .lock {
+    overflow: hidden;
+  }
+  body.lock{
+    overflow: hidden;
+  }
