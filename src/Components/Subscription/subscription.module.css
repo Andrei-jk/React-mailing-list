@@ -98,7 +98,8 @@ css
   height: 0;
   top: 0;
   left: 0;
-  background: #67dd6777;
+
+  background: rgb(21, 182, 142);
   /* центруем */
   display: flex;
   justify-content: center;
@@ -138,25 +139,38 @@ css
   top: 20px;
 }
 .subscription h1 {
+  color: white;
   font-size: 45px;
   font-weight: 700;
   margin-bottom: 20px;
 }
 .wrapperP {
-  font-size: 35px;
+  font-size: 32px;
   font-weight: 700;
-  color: blue;
+  color: rgb(251, 215, 72);
+  /* color: blue; */
   margin-bottom: 20px;
 }
 .agree {
-  font-size: 25px;
-  font-weight: 700;
-  color: blue;
+  font-weight: 300;
+  color: rgb(251, 215, 72);
   margin-bottom: 20px;
 }
+.agree p {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.agree a{
+  color: rgb(231, 48, 48);
+  font-size: 12px;
+
+}
+/* .link{
+margin-top: 50px;
+} */
 hr {
   height: 2px;
-  background-color: blue;
+  background-color: rgb(231, 48, 48);
   margin-bottom: 20px;
 }
 /* кнопка закрытия окна подписки */
@@ -173,7 +187,7 @@ hr {
   background: none;
   width: 55px;
   height: 55px;
-  color: red;
+  color:white;
 }
 .btn__close:active {
   transform: rotate(360deg);
@@ -193,7 +207,8 @@ input {
   padding: 10px;
   display: inline-block;
   margin: 10px 0px 20px;
-  background-color: rgba(255, 217, 0, 0.438);
+  /* background-color: rgba(255, 217, 0, 0.438); */
+  background-color:white;
 }
 input:focus {
   outline: none;
@@ -216,18 +231,21 @@ input[type="checkbox"] {
   cursor: pointer; /* Меняем курсор на "руку" при наведении */
 }
 .check span {
-  font-size: 14px;
+  font-size: 20px;
   user-select: none; /* Запрещаем выделение текста */
 }
 label {
-  color: red;
+  color: rgb(46, 53, 61);
   font-size: 20px;
+}
+.check {
+  margin-bottom: 20px;
 }
 /* кнопки внизу */
 .cansel__btn,
 .sign__btn {
   position: relative;
-  background-color: blueviolet;
+  background-color: #9c50e3;
   color: white;
   font-weight: 700;
   padding: 10px 20px;

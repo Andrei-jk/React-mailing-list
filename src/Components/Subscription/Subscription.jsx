@@ -23,15 +23,11 @@ const Subscription = () => {
   // 1. Как работает обычное обновление состояния
 
   // Без функционального обновления можно сделать так:
-  // js
-  // Copy
-
-  // onChange={() => setRemember(!remember)}
+ 
+    // onChange={() => setRemember(!remember)}
 
   // Если состояние (remember) обновляется асинхронно или в нескольких местах, React может использовать устаревшее (stale) значение, что приведёт к неправильному переключению.
   // 2. Как работает функциональное обновление
-  // js
-  // Copy
 
   // onChange={() => setRemember(prev => !prev)}
 
@@ -217,16 +213,16 @@ html
                 </label>
               </div>
               <div className={subCss.agree}>
-                <p>
-                  By clicking Sign Up, you agree to the{" "}
-                  <a
-                    href="https://gurucontext.ru/privacy-generator?ysclid=ma2bnr7tva521508702"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Privacy Policy
-                  </a>
-                  {/* 
+                <p>By clicking Sign Up, you agree to the </p>
+                <a
+                  className={subCss.link}
+                  href="https://gurucontext.ru/privacy-generator?ysclid=ma2bnr7tva521508702"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Privacy Policy
+                </a>
+                {/* 
 //                   Чтобы ссылка открывалась в новом окне, нужно добавить атрибут target="_blank". В вашем коде это нужно сделать для элементов <a>. Вот как это выглядит:
 // Для навигационного меню (из вашего кода):
 // jsx
@@ -240,8 +236,8 @@ html
 //     <a href="#!" target="_blank" rel="noopener noreferrer">будь в курсе</a>
 //   </li>
   // {/* ... и так для всех ссылок ... */}
-                  {/* </ul> */}
-                  {/* Важные нюансы:
+                {/* </ul> */}
+                {/* Важные нюансы:
 
     rel="noopener noreferrer" - обязательная добавка к target="_blank" для безопасности:
 
@@ -260,7 +256,7 @@ html
         Если у вас кнопка (<button>) должна открывать ссылку, лучше сделать так:
     jsx
     Copy */}
-                  {/* <button onClick={() => window.open('https://example.com', '_blank')}>
+                {/* <button onClick={() => window.open('https://example.com', '_blank')}>
       Открыть в новом окне
     </button>
 
@@ -269,8 +265,7 @@ html
         Лучше не использовать target="_blank" (это плохо для UX и SEO)
 
         Оставьте обычное поведение (открытие в текущей вкладке) */}
-                  {/* */}
-                </p>
+                {/* */}
               </div>
               <div className={subCss.btns}>
                 <button
