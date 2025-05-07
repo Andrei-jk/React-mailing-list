@@ -1,8 +1,9 @@
 import subCss from "./subscription.module.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Subscription = () => {
   // Используем хук useState для создания состояния isOpen, которое по умолчанию определяем как false. Это состояние будет определять, открыто ли меню.
+  // 1. useState для модального окна
   const [isOpen, setIsOpen] = useState(false);
   // создаем ф, которая будет открывать окно формы
   const openMenu = () => {
@@ -12,8 +13,14 @@ const Subscription = () => {
       setIsOpen(true);
     });
   };
+
+  // Чтобы закрыть окно, надо создать ф, которая будет закрывать окно формы
+  const closeMenu = () => {
+    //   Функция closeMenu закрывает меню.Чтобы закрыть окно, надо вызвать ф setIsOpen с параметром (false)
+    setIsOpen(false);
+  };
   // *************************************
-  //еще один useState для checkbox
+  // 2. useState для управления checkbox
   const [remember, setRemember] = useState(false);
   // создаем ф, которая будет управлять checkbox
   const changeCheckbox = () => {
@@ -23,8 +30,8 @@ const Subscription = () => {
   // 1. Как работает обычное обновление состояния
 
   // Без функционального обновления можно сделать так:
- 
-    // onChange={() => setRemember(!remember)}
+
+  // onChange={() => setRemember(!remember)}
 
   // Если состояние (remember) обновляется асинхронно или в нескольких местах, React может использовать устаревшее (stale) значение, что приведёт к неправильному переключению.
   // 2. Как работает функциональное обновление
@@ -61,12 +68,32 @@ const Subscription = () => {
 
   // *************************************
 
-  // Чтобы закрыть окно, надо создать ф, которая будет закрывать окно формы
 
-  const closeMenu = () => {
-    //   Функция closeMenu закрывает меню.Чтобы закрыть окно, надо вызвать ф setIsOpen с параметром (false)
-    setIsOpen(false);
-  };
+
+  useEffect(() => {
+    if (isOpen) {
+      // 1. Сначала блокируем скролл
+      document.body.style.overflow = "hidden";
+
+      // 2. Затем вычисляем и применяем компенсацию скроллбара
+      requestAnimationFrame(() => {
+        const scrollbarWidth =
+          window.innerWidth - document.documentElement.clientWidth;
+        document.body.style.paddingRight = `${scrollbarWidth}px`;
+
+        // 3. Только потом запускаем анимацию открытия
+        setIsOpen(true);
+      });
+    } else {
+      // При закрытии просто убираем стили
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    }
+  }, [isOpen]);
+  // *************************************
+
+
+
 
   return (
     // обертка для блока с формой (она не явл открывающимся или закрывающимся окном, этот просто обертка для return)
@@ -85,7 +112,7 @@ const Subscription = () => {
         {/* блок subscription в котором находится сама форма */}
         {/* приклеиваем к блоку subscription дополнительный класс open*/}
         <div className={subCss.subscription}>
-          {/* <div className={`${subCss.subscription} ${isOpen ? subCss.open : ""}`}> */}
+          
           {/* кнопка закрытия окна подписки и на нее вешаем onClick, который вызовет ф closeMenu */}
           <button className={subCss.btn__close} onClick={closeMenu}>
             &times;
@@ -273,7 +300,7 @@ html
                   className={subCss.cansel__btn}
                   id="cansel"
                 >
-                  Cansel
+                  Cancel
                 </button>
                 <button type="button" className={subCss.sign__btn}>
                   Sign Up

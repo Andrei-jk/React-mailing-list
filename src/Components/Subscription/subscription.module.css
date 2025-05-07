@@ -16,11 +16,13 @@
   color: rgb(255, 255, 255);
   max-width: 305px;
   opacity: 1;
-  overflow: hidden;
-  transform: scale(1);
-  transition: all 2s cubic-bezier(0.4, 0, 0.2, 1);
-  max-height: 52px;
-  will-change: transform, opacity, height;
+  /* ================================ */
+  /* overflow: hidden; */
+  /* transform: scale(1); */
+  /* transition: all 2s cubic-bezier(0.4, 0, 0.2, 1); */
+  /* max-height: 52px; */
+ will-change: transform, opacity, height, padding;
+  /* ================================ */
   /* will-change — это CSS-свойство, которое позволяет браузеру заранее оптимизировать производительность анимаций, указывая, какие свойства элемента могут измениться в ближайшее время. Это помогает улучшить плавность анимаций и уменьшить нагрузку на процессор.
 Применение свойств
 
@@ -47,10 +49,11 @@ css
 .subBtn.disappear {
   pointer-events: none;
   animation: fadeOut 0.9s ease-out both;
+  -webkit-animation: fadeOut 0.9s ease-out both;
 }
 
 /* !ВНИМАНИЕ, анимация через @keyframes проще в написании, меньше кода и значительно плавнее! */
-/* Анимация исчезновения */
+/* Анимация исчезновения для кнопки*/
 @keyframes fadeOut {
   0% {
     opacity: 1;
@@ -61,77 +64,135 @@ css
   }
   100% {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.95);
     height: 0;
-    padding-top: 0;
+     padding: 0 24px;
+    /* padding-top: 0;
     padding-bottom: 0;
     margin-top: 0;
-    margin-bottom: 0;
-  }
+    margin-bottom: 0; */
+}
 }
 
 /* Анимация появления */
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.95);
     height: 0;
-    padding-top: 0;
+    /* при таком padding, кнопка скрывается */
+     padding: 0 24px;
+    /* padding-top: 0;
     padding-bottom: 0;
     margin-top: 0;
-    margin-bottom: 0;
-  }
+    margin-bottom: 0; */
+ 
+}
   100% {
     opacity: 1;
     transform: scale(1);
     height: 56px;
     padding: 16px 24px;
-    margin: initial;
+    /* margin: initial; */
   }
 }
 /* блок subscription в котором находится сама форма  */
-/* .subscription { */
+/* запишем анимацию модального окна на @keyframes */
+@keyframes modalOpen {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    height: 100vh;
+    opacity: 1;
+  }
+}
+
+@keyframes modalClose {
+  0% {
+    height: 100vh;
+    opacity: 1;
+  }
+  100% {
+    height: 0;
+    opacity: 0;
+  }
+}
 .modalContainer {
   position: fixed;
-  width: 100%;
+  /*width: 100%;
+  */width: 100vw;
   /*Начальная высота*/
   height: 0;
   top: 0;
   left: 0;
-
   background: rgb(21, 182, 142);
-  /* центруем */
+  /*центруем*/
   display: flex;
   justify-content: center;
   align-items: center;
   /*Скрываем содержимое*/
   overflow: hidden;
-  /*Анимация для высоты и прозрачности*/
-  transition: height 1.8s ease, opacity 2.8s ease;
+  /*overflow: auto;
+  *//*Анимация для высоты и прозрачности*/
+  animation: modalClose 0.9s ease-out both;
+  opacity: 0;
+  visibility: hidden;
+  margin: 0;
+  padding: 0;
+  /*transition: height 1.8s ease, opacity 2.8s ease;
   -webkit-transition: height 1.8s ease, opacity 2.8s ease;
   -moz-transition: height 1.8s ease, opacity 2.8s ease;
   -ms-transition: height 1.8s ease, opacity 2.8s ease;
   -o-transition: height 1.8s ease, opacity 2.8s ease;
-  opacity: 0;
-  overflow: auto;
+  *//*Предотвращаетскроллосновногоконтента*/overscroll-behavior-y: contain;
+  -webkit-animation: modalClose 0.9s ease-out both;
+  -webkit-animation: modalClose 0.9s ease-out both;
+  will-change: height, opacity;
 }
+/* если при перезагрузке страницы сначало появляется модалка и сразу исчезает, то надо (рекомендуется) скрыть модалку изначально 
+.modal {
+  display: none; /* или opacity: 0 + visibility: hidden */
+/* } */
+ /* а затем, при открытии, поменять на display: block (или opacity: 1 и  visibility: visible;) через JS.
+ в .modalContainer и .modalContainer.open это описано  */
+
 .modalContainer.open {
-  height: 100vh;
-  /*Полная высота при открытии*/
-  opacity: 1;
-  /*Полная видимость*/
-  transition: height 2.8s ease, opacity 0.8s ease;
-  -webkit-transition: height 2.8s ease, opacity 0.8s ease;
-  -moz-transition: height 2.8s ease, opacity 0.8s ease;
-  -ms-transition: height 2.8s ease, opacity 0.8s ease;
-  -o-transition: height 2.8s ease, opacity 0.8s ease;
-     /* !ОЧЕНЬ ВАЖНО = свойство ниже добавляется модальному меню ОБЯЗАТЕЛЬНО, для того чтобы при малых экранах можно было добраться ко ВСЕМ пунктам мобильного меню  */
-   overflow: auto;
+   height: 100vh;
+   /*Полная высота при открытии*/
+   opacity: 1;
+   /*Полная видимость*/
+   animation: modalOpen 1.0s ease-out both;
+   /*!ОЧЕНЬ ВАЖНО = свойство ниже добавляется модальному меню ОБЯЗАТЕЛЬНО, для того чтобы при малых экранах можно было добраться ко ВСЕМ пунктам мобильного меню*/
+   overflow:hidden;
+   /*transition: height 2.8s ease, opacity 0.8s ease;
+   -webkit-transition: height 2.8s ease, opacity 0.8s ease;
+   -moz-transition: height 2.8s ease, opacity 0.8s ease;
+   -ms-transition: height 2.8s ease, opacity 0.8s ease;
+   -o-transition: height 2.8s ease, opacity 0.8s ease;
+   */-webkit-animation: modalOpen 1.0s ease-out both;
+   -webkit-animation: modalOpen 1.0s ease-out both;
+   visibility: visible;
 }
 .subscription {
-  padding: 20px;
-  width: 80%;
-  max-width: 600px;
+  /* padding: 20px calc(100vw - 100%) 20px 60px; */
+  padding: 45px;
+  /* width: 80%; */
+  /* max-width: 600px; */
+    /* max-width: 100%; */
+    width: 100%;
+    height: 100%;
+    /* padding-left: 60px; */
+    padding-left: clamp(50px, 3rem + 0.62vw, 60px);
+    /* ************************** */
+        /* Было: padding-right: calc(100vw - 100%)
+    Стало: padding-right: calc(45px + (100vw - 100%))
+    Почему: Сохраняем симметрию с базовым padding 45px */
+    /* ************************** */
+    padding-right:  calc(45px + (100vw - 100%));
+   /* Компенсация скроллбара */
+   /* overflow-x: hidden; */
 }
 /* форма */
 .form {
@@ -162,10 +223,9 @@ css
   font-size: 15px;
   margin-bottom: 10px;
 }
-.agree a{
+.agree a {
   color: rgb(231, 48, 48);
   font-size: 12px;
-
 }
 /* .link{
 margin-top: 50px;
@@ -189,7 +249,7 @@ hr {
   background: none;
   width: 55px;
   height: 55px;
-  color:white;
+  color: white;
 }
 .btn__close:active {
   transform: rotate(360deg);
@@ -210,7 +270,7 @@ input {
   display: inline-block;
   margin: 10px 0px 20px;
   /* background-color: rgba(255, 217, 0, 0.438); */
-  background-color:white;
+  background-color: white;
 }
 input:focus {
   outline: none;
@@ -267,10 +327,14 @@ label {
 .sign__btn:active {
   transform: translateY(10px);
 }
-  /* описываем класс lock, который добавляется к body, для отмены скрола при открытом модальном меню */
-  .lock {
-    overflow: hidden;
-  }
-  body.lock{
-    overflow: hidden;
-  }
+/* описываем класс lock, который добавляется к body, для отмены скрола при открытом модальном меню */
+.lock {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+    height: 100%;
+  top: 0;
+  left: 0;
+   touch-action: none; /* Блокируем скролл на мобильных устройствах */
+}
+
