@@ -121,8 +121,7 @@ css
 }
 .modalContainer {
   position: fixed;
-  /*width: 100%;
-  */width: 100vw;
+  width: 100vw;
   /*Начальная высота*/
   height: 0;
   top: 0;
@@ -162,6 +161,7 @@ css
    height: 100vh;
    /*Полная высота при открытии*/
    opacity: 1;
+   visibility: visible;
    /*Полная видимость*/
    animation: modalOpen 1.0s ease-out both;
    /*!ОЧЕНЬ ВАЖНО = свойство ниже добавляется модальному меню ОБЯЗАТЕЛЬНО, для того чтобы при малых экранах можно было добраться ко ВСЕМ пунктам мобильного меню*/
@@ -173,7 +173,6 @@ css
    -o-transition: height 2.8s ease, opacity 0.8s ease;
    */-webkit-animation: modalOpen 1.0s ease-out both;
    -webkit-animation: modalOpen 1.0s ease-out both;
-   visibility: visible;
 }
 .subscription {
   /* padding: 20px calc(100vw - 100%) 20px 60px; */

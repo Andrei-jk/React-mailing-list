@@ -5,12 +5,15 @@ const Subscription = () => {
   // Используем хук useState для создания состояния isOpen, которое по умолчанию определяем как false. Это состояние будет определять, открыто ли меню.
   // 1. useState для модального окна
   const [isOpen, setIsOpen] = useState(false);
+ 
+ 
   // создаем ф, которая будет открывать окно формы
   const openMenu = () => {
     //  Чтобы открыть окно, надо вызвать ф setIsOpen с параметром (true) Здесь вместо непосредственного вызова setIsOpen(true), мы используем requestAnimationFrame. Это позволяет браузеру выполнить обновления перед изменением состояния, что может помочь сделать анимации более плавными.
     //  * setIsOpen(true);
     requestAnimationFrame(() => {
       setIsOpen(true);
+     
     });
   };
 
@@ -18,7 +21,15 @@ const Subscription = () => {
   const closeMenu = () => {
     //   Функция closeMenu закрывает меню.Чтобы закрыть окно, надо вызвать ф setIsOpen с параметром (false)
     setIsOpen(false);
+   
   };
+  
+    // const handleAnimationEnd = () => {
+    //   if (isClosing) {
+    //     setIsOpen(false);
+        
+    //   }
+    // };
   // *************************************
   // 2. useState для управления checkbox
   const [remember, setRemember] = useState(false);
@@ -91,6 +102,8 @@ const Subscription = () => {
     }
   }, [isOpen]);
   // *************************************
+   
+  // *************************************
 
 
 
@@ -107,50 +120,57 @@ const Subscription = () => {
       >
         Подписаться на рассылку
       </button>
-      <div className={`${subCss.modalContainer} ${isOpen ? subCss.open : ""}`}>
-        {/*  // весь открывающийся блок с формой */}
-        {/* блок subscription в котором находится сама форма */}
-        {/* приклеиваем к блоку subscription дополнительный класс open*/}
-        <div className={subCss.subscription}>
+
+     
+
+
+
+
+
+          <div className={`${subCss.modalContainer} ${isOpen ? subCss.open : ""}`}>
+          {/*  // весь открывающийся блок с формой */}
+          {/* блок subscription в котором находится сама форма */}
+          {/* приклеиваем к блоку subscription дополнительный класс open*/}
+          <div className={subCss.subscription}>
           
-          {/* кнопка закрытия окна подписки и на нее вешаем onClick, который вызовет ф closeMenu */}
-          <button className={subCss.btn__close} onClick={closeMenu}>
-            &times;
-          </button>
-          {/* <span class="close" id="cl">
+            {/* кнопка закрытия окна подписки и на нее вешаем onClick, который вызовет ф closeMenu */}
+            <button className={subCss.btn__close} onClick={closeMenu}>
+              &times;
+            </button>
+            {/* <span class="close" id="cl">
           &times;
         </span> */}
-          <div className={subCss.form} id="form">
-            {/* форма */}
-            <form action="#" className={subCss.content}>
-              {/* <div className={subCss.container}> */}
-              <h1>Sign-Up</h1>
-              {/* ОБЯЗЯТЕЛЬНО ПАРАГРАФ ДОПОЛНИТЕЛЬНО ОБЕРТЫВАТЬ (см Ламков) */}
-              <div className={subCss.wrapperP}>
-                <p>Pleace, fill in this form!</p>
-              </div>
-              <hr></hr>
-              <label htmlFor="name">Name</label>
-              <input
-                type="text"
-                className={subCss.name}
-                id="name"
-                name="name"
-                placeholder="Enter your name"
-                required
-                autoComplete="name"
-              ></input>
-              <label htmlFor="e-mail">E-mail</label>
-              <input
-                type="email"
-                className={subCss.mail}
-                id="mail"
-                name="e-mail"
-                placeholder="Enter e-mail"
-                required
-                autoComplete="email"
-              ></input>
-              {/* autocomplete — это атрибут HTML, который используется в элементах форм, чтобы указать браузеру, как обрабатывать автозаполнение полей ввода. Он помогает пользователям быстрее заполнять формы, предлагая им ранее введенные значения.
+            <div className={subCss.form} id="form">
+              {/* форма */}
+              <form action="#" className={subCss.content}>
+                {/* <div className={subCss.container}> */}
+                <h1>Sign-Up</h1>
+                {/* ОБЯЗЯТЕЛЬНО ПАРАГРАФ ДОПОЛНИТЕЛЬНО ОБЕРТЫВАТЬ (см Ламков) */}
+                <div className={subCss.wrapperP}>
+                  <p>Pleace, fill in this form!</p>
+                </div>
+                <hr></hr>
+                <label htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  className={subCss.name}
+                  id="name"
+                  name="name"
+                  placeholder="Enter your name"
+                  required
+                  autoComplete="name"
+                ></input>
+                <label htmlFor="e-mail">E-mail</label>
+                <input
+                  type="email"
+                  className={subCss.mail}
+                  id="mail"
+                  name="e-mail"
+                  placeholder="Enter e-mail"
+                  required
+                  autoComplete="email"
+                ></input>
+                {/* autocomplete — это атрибут HTML, который используется в элементах форм, чтобы указать браузеру, как обрабатывать автозаполнение полей ввода. Он помогает пользователям быстрее заполнять формы, предлагая им ранее введенные значения.
 Зачем нужен autocomplete?
 
     Удобство для пользователей: Автозаполнение позволяет пользователям быстро выбирать ранее введенные данные, что экономит время и уменьшает количество ошибок при вводе.
@@ -178,26 +198,26 @@ html
   <input type="password" id="password" name="password" autoComplete="new-password" />
 </form>
  */}
-              <label htmlFor="pass">Password</label>
-              <input
-                className={subCss.field}
-                type="password"
-                id="pass"
-                name="pass"
-                placeholder="Create a password"
-                autoComplete="new-password"
-                required
-              ></input>
-              <label htmlFor="pass-repeat">Repeat password</label>
-              <input
-                className={subCss.field}
-                type="password"
-                id="pass-repeat"
-                name="pass-repeat"
-                placeholder="Repeat a password"
-                required
-              ></input>
-              {/* Атрибут required в HTML используется для указания, что поле ввода должно быть обязательно заполнено перед отправкой формы. Это позволяет браузеру проверять, заполнены ли все обязательные поля, и предотвращать отправку формы, если они пустые.
+                <label htmlFor="pass">Password</label>
+                <input
+                  className={subCss.field}
+                  type="password"
+                  id="pass"
+                  name="pass"
+                  placeholder="Create a password"
+                  autoComplete="new-password"
+                  required
+                ></input>
+                <label htmlFor="pass-repeat">Repeat password</label>
+                <input
+                  className={subCss.field}
+                  type="password"
+                  id="pass-repeat"
+                  name="pass-repeat"
+                  placeholder="Repeat a password"
+                  required
+                ></input>
+                {/* Атрибут required в HTML используется для указания, что поле ввода должно быть обязательно заполнено перед отправкой формы. Это позволяет браузеру проверять, заполнены ли все обязательные поля, и предотвращать отправку формы, если они пустые.
 Зачем нужен required?
 
     Валидация данных: Гарантирует, что пользователь предоставит необходимую информацию, прежде чем форма будет отправлена. Это помогает избежать ошибок и недостающих данных.
@@ -227,29 +247,29 @@ html
     Если пользователь пытается отправить форму, не заполнив обязательные поля, браузер отобразит сообщение об ошибке и не позволит отправить форму, пока все обязательные поля не будут заполнены.
     Пользователь увидит визуальные подсказки, такие как рамки или сообщения, указывающие на ошибку.
  */}
-              <div className={subCss.check}>
-                <label htmlFor="remember">
-                  <input
-                    type="checkbox"
-                    name="remember"
-                    id="remember"
-                    checked={remember}
-                    onChange={changeCheckbox}
-                  ></input>
-                  <span>remember me</span>
-                </label>
-              </div>
-              <div className={subCss.agree}>
-                <p>By clicking Sign Up, you agree to the </p>
-                <a
-                  className={subCss.link}
-                  href="https://gurucontext.ru/privacy-generator?ysclid=ma2bnr7tva521508702"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Privacy Policy
-                </a>
-                {/* 
+                <div className={subCss.check}>
+                  <label htmlFor="remember">
+                    <input
+                      type="checkbox"
+                      name="remember"
+                      id="remember"
+                      checked={remember}
+                      onChange={changeCheckbox}
+                    ></input>
+                    <span>remember me</span>
+                  </label>
+                </div>
+                <div className={subCss.agree}>
+                  <p>By clicking Sign Up, you agree to the </p>
+                  <a
+                    className={subCss.link}
+                    href="https://gurucontext.ru/privacy-generator?ysclid=ma2bnr7tva521508702"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Privacy Policy
+                  </a>
+                  {/*
 //                   Чтобы ссылка открывалась в новом окне, нужно добавить атрибут target="_blank". В вашем коде это нужно сделать для элементов <a>. Вот как это выглядит:
 // Для навигационного меню (из вашего кода):
 // jsx
@@ -263,8 +283,8 @@ html
 //     <a href="#!" target="_blank" rel="noopener noreferrer">будь в курсе</a>
 //   </li>
   // {/* ... и так для всех ссылок ... */}
-                {/* </ul> */}
-                {/* Важные нюансы:
+                  {/* </ul> */}
+                  {/* Важные нюансы:
 
     rel="noopener noreferrer" - обязательная добавка к target="_blank" для безопасности:
 
@@ -283,7 +303,7 @@ html
         Если у вас кнопка (<button>) должна открывать ссылку, лучше сделать так:
     jsx
     Copy */}
-                {/* <button onClick={() => window.open('https://example.com', '_blank')}>
+                  {/* <button onClick={() => window.open('https://example.com', '_blank')}>
       Открыть в новом окне
     </button>
 
@@ -292,27 +312,31 @@ html
         Лучше не использовать target="_blank" (это плохо для UX и SEO)
 
         Оставьте обычное поведение (открытие в текущей вкладке) */}
-                {/* */}
-              </div>
-              <div className={subCss.btns}>
-                <button
-                  type="button"
-                  className={subCss.cansel__btn}
-                  id="cansel"
-                >
-                  Cancel
-                </button>
-                <button type="button" className={subCss.sign__btn}>
-                  Sign Up
-                </button>
-              </div>
-              {/* </div> */}
-            </form>
+                  {/* */}
+                </div>
+                <div className={subCss.btns}>
+                  <button
+                    type="button"
+                    className={subCss.cansel__btn}
+                    id="cansel"
+                  >
+                    Cancel
+                  </button>
+                  <button type="button" className={subCss.sign__btn}>
+                    Sign Up
+                  </button>
+                </div>
+                {/* </div> */}
+              </form>
+            </div>
           </div>
         </div>
-      </div>
+     
     </div>
   );
 };
 
 export default Subscription;
+
+
+
