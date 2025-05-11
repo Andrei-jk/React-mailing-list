@@ -169,10 +169,9 @@ css
  в .modalContainer и .modalContainer.open это описано  */
 
 .modalContainer.open {
-  animation: modalOpen 1.5s ease both;
+  animation: modalOpen 3.5s ease both;
   /* для того, чтобы открытая модалка скролилась, надо добавить overflow-y:auto */
   overflow-y: auto;
-  min-height: 100vh;
 }
 
 .modalContainer.closing {
