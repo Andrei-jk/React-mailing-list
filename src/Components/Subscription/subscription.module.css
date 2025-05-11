@@ -170,8 +170,10 @@ css
  в .modalContainer и .modalContainer.open это описано  */
 
 .modalContainer.open {
-  
   animation: modalOpen 1.5s ease both;
+  /* для того, чтобы открытая модалка скролилась, надо добавить overflow-y:auto */
+  overflow-y:auto;
+  min-height: 100vh;
 }
 
 .modalContainer.closing {
@@ -318,10 +320,7 @@ label {
   border-radius: 10px;
   cursor: pointer;
   transition: 0.4s;
-  -webkit-transition: 0.4s;
-  -moz-transition: 0.4s;
-  -ms-transition: 0.4s;
-  -o-transition: 0.4s;
+
 }
 .cansel__btn {
   margin-right: 15px;
@@ -340,4 +339,7 @@ label {
   top: 0;
   left: 0;
   touch-action: none; /* Блокируем скролл на мобильных устройствах */
+}
+.btns{
+  padding-bottom: 100px;
 }
