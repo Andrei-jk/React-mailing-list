@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import navCss from "./navigation.module.css";
 
 // ==========================================
@@ -25,6 +25,41 @@ const Navigation = () => {
     //   Функция closeMenu: Эта функция закрывает меню, просто устанавливая isOpen в false.
     setIsOpen(false);
   };
+
+  // *************************************
+
+
+
+  // useEffect(() => {
+  //   if (isOpen) {
+  //     // 1. Сначала блокируем скролл
+  //     document.body.style.overflow = "hidden";
+
+  //     // 2. Затем вычисляем и применяем компенсацию скроллбара
+  //     requestAnimationFrame(() => {
+  //       const scrollbarWidth =
+  //         window.innerWidth - document.documentElement.clientWidth;
+  //       document.body.style.paddingRight = `${scrollbarWidth}px`;
+
+  //       // 3. Только потом запускаем анимацию открытия
+  //       setIsOpen(true);
+  //     });
+  //   } else {
+  //     // При закрытии просто убираем стили
+  //     document.body.style.overflow = "";
+  //     document.body.style.paddingRight = "";
+  //   }
+  // }, [isOpen]);
+  // *************************************
+
+
+
+
+
+
+
+
+
 
   return (
     //  =============== MODAL MENU
