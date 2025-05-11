@@ -151,27 +151,54 @@ const Subscription = () => {
   return (
     <div className={subCss.wrapper}>
       <button
-        className={`${subCss.subBtn} ${
+        className={`${subCss.subBtn}
+        // ${
+          subCss.subBtn
+        }: Это основной класс для кнопки, который следует из импортированного CSS-модуля subCss. Он используется для стилизации кнопки.
+        ${
           modalState === "open" || modalState === "closing"
             ? subCss.disappear
             : ""
         }`}
+        //
+
+        //     Условная логика:
+        //         modalState === "open" || modalState === "closing": Здесь проверяется текущее состояние modalState.
+        //             Если modalState равно "open" (модальное окно открыто) или "closing" (модальное окно закрывается), добавляется класс subCss.disappear.
+        //             Если ни одно из этих условий не выполняется, добавляется пустая строка (""), что означает, что класс не будет добавлен.
+
+        // 4. Класс subCss.disappear
+
+        //     Этот класс, вероятно, определен в CSS и используется для изменения стиля кнопки, когда модальное окно открыто или закрывается. Например, он может изменять прозрачность или размеры кнопки, делая ее невидимой или менее заметной.
+
         onClick={openMenu}
+        // Атрибут onClick назначает обработчик событий, который вызывается при нажатии на кнопку.
+        // Когда пользователь нажимает кнопку, вызывается функция openMenu, которая изменяет состояние modalState на 'opening'. Это инициирует процесс открытия модального окна.
       >
         Подписаться на рассылку
       </button>
 
       {modalState !== "closed" && (
         <div
-          className={`${subCss.modalContainer} ${
-            modalState === "open" || modalState === "opening" ? subCss.open : ""
-          } ${modalState === "closing" ? subCss.closing : ""}`}
+          className={
+            `${subCss.modalContainer}
+           ${
+             modalState === "open" || modalState === "opening"
+               ? subCss.open
+               : ""
+             //  Если модальное окно открыто или открывается, добавляется класс subCss.open (в другом случае не добавляется ничего)
+           }
+           ${modalState === "closing" ? subCss.closing : ""}`
+            //  Если модальное окно закрыто или закрывается, добавляется класс subCss.closing (в другом случае не добавляется ничего)
+          }
           onAnimationEnd={handleAnimationEnd}
+          // Этот обработчик срабатывает, когда анимация модального окна завершается, вызывая функцию handleAnimationEnd, которая обновляет состояние.
         >
           <div className={subCss.subscription}>
             <button className={subCss.btn__close} onClick={closeMenu}>
               &times;
             </button>
+            {/* Кнопка закрытия, стилизованная с помощью класса subCss.btn__close. При нажатии вызывается функция closeMenu, которая устанавливает состояние модального окна на 'closing' */}
             <div className={subCss.form} id="form">
               <form className={subCss.content}>
                 <h1>Sign-Up</h1>
@@ -180,6 +207,7 @@ const Subscription = () => {
                 </div>
                 <hr />
                 <label htmlFor="name">Name</label>
+                {/* <label>: Связывает текст с полем ввода по id. */}
                 <input
                   type="text"
                   className={subCss.name}
@@ -187,7 +215,9 @@ const Subscription = () => {
                   name="name"
                   placeholder="Enter your name"
                   required
+                  // required: Обязательно для заполнения.
                   autoComplete="name"
+                  // autoComplete: Подсказка для браузера.
                 />
                 <label htmlFor="email">E-mail</label>
                 <input
@@ -240,6 +270,7 @@ const Subscription = () => {
                   <button type="submit" className={subCss.sign__btn}>
                     Sign Up
                   </button>
+                  {/* Кнопка "Cancel": Закрывает модальное окно, вызывая closeMenu. Кнопка "Sign Up": Отправляет форму (тип submit).*/}
                 </div>
               </form>
             </div>
