@@ -78,20 +78,26 @@
 
 .close__btn {
   position: absolute;
-  top: 20px;
-  /* right: 45px; */
-  right: clamp(20px, 1.688rem + 0.94vw, 45px);
-  font-size: 45px;
-  /* font-size: clamp(41px, 2.426rem + 0.69vw, 52px); */
+  /* font-size: 50px; */
+  font-size: clamp(45px, 2.75rem + 0.31vw, 50px);
+  font-weight: 200;
+  top: 25px;
+  /* right: 42px; */
+  right: clamp(30px, 1.726rem + 0.75vw, 42px);
+  cursor: pointer;
+  display: inline-block;
+  box-shadow: none;
+  background-color: transparent;
+  background: none;
+  width: 55px;
+  height: 55px;
   color: white;
-  /* width: clamp(50px, 10vw, 100px); Адаптивная ширина */
-  /* height: clamp(50px, 10vh, 100px); Адаптивная высота */
 
-  /* display: flex; Для выравнивания содержимого */
-  /* align-items: center; Вертикальное выравнивание текста */
-  /* justify-content: center; Горизонтальное выравнивание текста */
 }
-
+.close__btn:active{
+  transform: rotate(360deg);
+  transition: transform 0.5s ease;
+}
 .list__menu {
   position: relative;
   width: 100%;

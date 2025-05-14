@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+// import React, { useState, useEffect } from "react";
 import navCss from "./navigation.module.css";
 
 // ==========================================
@@ -11,7 +12,7 @@ import navCss from "./navigation.module.css";
 
 const Navigation = () => {
   // Состояние isOpen: Используем хук useState для создания состояния isOpen, которое по умолчанию равно false. Это состояние будет определять, открыто ли меню.
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // 'closed', 'opening', 'open', 'closing'
 
   const openMenu = () => {
     //   Функция openMenu: Эта функция открывает меню. Вместо непосредственного вызова setIsOpen(true), мы используем requestAnimationFrame. Это позволяет браузеру выполнить обновления перед изменением состояния, что может помочь сделать анимации более плавными.
@@ -28,8 +29,6 @@ const Navigation = () => {
 
   // *************************************
 
-
-
   // useEffect(() => {
   //   if (isOpen) {
   //     // 1. Сначала блокируем скролл
@@ -42,7 +41,7 @@ const Navigation = () => {
   //       document.body.style.paddingRight = `${scrollbarWidth}px`;
 
   //       // 3. Только потом запускаем анимацию открытия
-  //       setIsOpen(true);
+  //       // setIsOpen(true);
   //     });
   //   } else {
   //     // При закрытии просто убираем стили
@@ -51,15 +50,6 @@ const Navigation = () => {
   //   }
   // }, [isOpen]);
   // *************************************
-
-
-
-
-
-
-
-
-
 
   return (
     //  =============== MODAL MENU
@@ -98,26 +88,37 @@ const Navigation = () => {
 
 Эта строка кода создает динамический класс для элемента div, который меняется в зависимости от состояния isOpen. Он использует шаблонные строки и тернарный оператор для удобства и читабельности. */}
         {/* кнопка закрытия окна */}
-        <a href="#close_link" className={navCss.close__btn} onClick={closeMenu}>
+        <button className={navCss.close__btn} onClick={closeMenu}>
           &times;
           {/* close */}
-        </a>
+        </button>
         {/* пункты меню */}
         <ul className={navCss.list__menu}>
           <li>
-            <a href="#!"target="_blank" rel="noopener noreferrer">о нас</a>
+            <a href="#!" target="_blank" rel="noopener noreferrer">
+              о нас
+            </a>
           </li>
           <li>
-            <a href="#!"target="_blank" rel="noopener noreferrer">будь в курсе</a>
+            <a href="#!" target="_blank" rel="noopener noreferrer">
+              будь в курсе
+            </a>
           </li>
           <li>
-            <a href="#!"target="_blank" rel="noopener noreferrer">анонсы</a>
+            <a href="#!" target="_blank" rel="noopener noreferrer">
+              анонсы
+            </a>
           </li>
           <li>
-            <a href="#!"target="_blank" rel="noopener noreferrer">партнеры</a>
+            <a href="#!" target="_blank" rel="noopener noreferrer">
+              партнеры
+            </a>
           </li>
           <li>
-            <a href="#!"target="_blank" rel="noopener noreferrer">контакты</a>
+            <a href="#!" target="_blank" rel="noopener noreferrer">
+              контакты
+            </a>
+          
           </li>
         </ul>
       </div>
