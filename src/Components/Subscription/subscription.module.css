@@ -1,10 +1,14 @@
 /* кнопка, которая открывает подписку на рассылку */
 .subBtn {
-  padding: 16px 24px;
+  padding: 8px 12px;
+  /* padding: 16px 24px; */
+  /* padding: clamp(8px, 0.4rem + 0.5vw, 16px) clamp(12px, 0.601rem + 0.75vw, 24px); */
   font-family: Eastman;
-  line-height: 20px;
+  line-height: clamp(18px, 1.1rem + 0.12vw, 20px);
+  /* line-height: 20px; */
   font-weight: 400;
-  font-size: 18px;
+  font-size: clamp(10px, 0.525rem + 0.5vw, 18px);
+  /* font-size: 18px; */
   background: linear-gradient(
     132.1deg,
     rgb(147, 231, 54) -28.477%,
@@ -14,14 +18,20 @@
   display: inline-block;
   text-align: center;
   color: rgb(255, 255, 255);
-  max-width: 305px;
+  /* max-width: 305px; */
+  /* max-width: 143px; */
+  max-width: clamp(143px, 6.92rem + 10.12vw, 305px);
+
+  /* max-height: 34px; */
+  max-height: clamp(34px, 1.901rem + 1.12vw, 52px);
   opacity: 1;
   /* ================================ */
   /* overflow: hidden; */
   /* transform: scale(1); */
   /* transition: all 2s cubic-bezier(0.4, 0, 0.2, 1); */
   /* max-height: 52px; */
-  will-change: transform, opacity, height, padding;
+  /* will-change: transform, opacity, height, padding; */
+  will-change: transform, opacity, height;
   /* ================================ */
   /* will-change — это CSS-свойство, которое позволяет браузеру заранее оптимизировать производительность анимаций, указывая, какие свойства элемента могут измениться в ближайшее время. Это помогает улучшить плавность анимаций и уменьшить нагрузку на процессор.
 Применение свойств
@@ -45,7 +55,7 @@ css
 /* класс для исчезания кнопки открытия */
 .subBtn.disappear {
   pointer-events: none;
-  animation: fadeOut 1.5s ease-out both;
+  animation: fadeOut .1s linear both;
 }
 
 /* !ВНИМАНИЕ, анимация через @keyframes проще в написании, меньше кода и значительно плавнее! */
@@ -55,18 +65,16 @@ css
     opacity: 1;
     transform: scale(1);
     height: 56px;
-    padding: 16px 24px;
-    /* margin: initial; */
+  }
+  50% {
+    height: 0; /* Высота уходит быстро */
+    opacity: 0.2; /* Почти невидим, но ещё чуть виден */
+    transform: scale(0.95);
   }
   100% {
     opacity: 0;
     transform: scale(0.95);
     height: 0;
-    padding: 0 24px;
-    /* padding-top: 0;
-    padding-bottom: 0;
-    margin-top: 0;
-    margin-bottom: 0; */
   }
 }
 
@@ -77,7 +85,7 @@ css
     transform: scale(0.95);
     height: 0;
     /* при таком padding, кнопка скрывается */
-    padding: 0 24px;
+    /* padding: 0 24px; */
     /* padding-top: 0;
     padding-bottom: 0;
     margin-top: 0;
@@ -87,8 +95,7 @@ css
     opacity: 1;
     transform: scale(1);
     height: 56px;
-    padding: 16px 24px;
-    /* margin: initial; */
+   
   }
 }
 /* блок subscription в котором находится сама форма  */
@@ -263,7 +270,6 @@ hr {
 .btn__close:active {
   transform: rotate(360deg);
   transition: transform 0.5s ease;
-
 }
 
 input {

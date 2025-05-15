@@ -106,15 +106,11 @@ const Subscription = () => {
   return (
     <div className={subCss.wrapper}>
       <button
-        className={`${subCss.subBtn}
-        // ${
-          subCss.subBtn
-        }: Это основной класс для кнопки, который следует из импортированного CSS-модуля subCss. Он используется для стилизации кнопки.
-        ${
-          modalState === "open" || modalState === "closing"
-            ? subCss.disappear
-            : ""
-        }`}
+        className={`
+          ${subCss.subBtn}
+              // : Это основной класс для кнопки, который следует из импортированного CSS-модуля subCss. Он используется для стилизации кнопки.
+        ${modalState === "open" || modalState === "closing" ? subCss.disappear : ""}
+        `}
         //
 
         //     Условная логика:
