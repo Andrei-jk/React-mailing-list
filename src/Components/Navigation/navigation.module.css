@@ -3,8 +3,10 @@
   background: url(./../../img/logo.png) no-repeat center center/cover;
   /* width: 25%;
   height: 10%; */
-  width: 179px;
-  height: 60px;
+  /* width: 179px; */
+  width: clamp(116px, 6.465rem + 3.94vw, 179px);
+  /* height: 60px; */
+  height:clamp(39px, 2.176rem + 1.31vw, 60px);
   display: inline-block;
   position: relative;
 }
@@ -23,7 +25,7 @@
   );
   border-radius: 10px;
   z-index: -1;
-  transition: 0.6s ease;
+  transition: 0.8s ease;
   transform: scaleX(0);
  
 }
