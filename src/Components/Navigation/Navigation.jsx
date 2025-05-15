@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 // import React, { useState, useEffect } from "react";
 import navCss from "./navigation.module.css";
-
+// добавляем роутинг
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
+// добавляем ссылки
+import { NavLink } from "react-router-dom";
 // ==========================================
 // Общая структура
 
@@ -52,14 +55,16 @@ const Navigation = () => {
   // *************************************
 
   return (
-    //  =============== MODAL MENU
-    //   div className={menu ${isOpen ? "open" : ""}}>: Этот div представляет основное меню. Если isOpen равно true, добавляется класс open, который можно использовать для стилизации (например, для анимации) иначе : ничего (" ")
-    <div className={`menu ${isOpen ? "open" : ""}`}>
-      {/* ссылка-КНОПКА, которая открывает MODAL MENU */}
-      <button className={navCss.nav__btn} onClick={openMenu}></button>
-      {/* модальное меню */}
-      <div className={`${navCss.menu} ${isOpen ? navCss.open : ""}`}>
-        {/* <div className={`${navCss.menu} ${isOpen ? navCss.open : ""}`}>
+    // <BrowserRouter>
+      // {/* //  =============== MODAL MENU */}
+      /* //   div className={menu ${isOpen ? "open" : ""}}>: Этот div представляет основное меню. Если isOpen равно true, добавляется класс open, который можно использовать для стилизации (например, для анимации) иначе : ничего (" ") */
+      <div className={`menu ${isOpen ? "open" : ""}`}>
+        {/* ссылка-КНОПКА, которая открывает MODAL MENU */}
+        <button className={navCss.nav__btn} onClick={openMenu}></button>
+        {/* модальное меню */}
+        <div className={`${navCss.menu} ${isOpen ? navCss.open : ""}`}>
+          {/* ********************************* */}
+          {/* <div className={`${navCss.menu} ${isOpen ? navCss.open : ""}`}>
 КАК ДОБАВЛЯЕТСЯ ДОПОЛНИТЕЛЬНЫЙ КЛАСС!!!
 
 1. Использование шаблонных строк
@@ -87,43 +92,68 @@ const Navigation = () => {
 Итог
 
 Эта строка кода создает динамический класс для элемента div, который меняется в зависимости от состояния isOpen. Он использует шаблонные строки и тернарный оператор для удобства и читабельности. */}
-        {/* кнопка закрытия окна */}
-        <button className={navCss.close__btn} onClick={closeMenu}>
-          &times;
-          {/* close */}
-        </button>
-        {/* пункты меню */}
-        <ul className={navCss.list__menu}>
-          <li>
-            <a href="#!" target="_blank" rel="noopener noreferrer">
-              о нас
-            </a>
-          </li>
-          <li>
-            <a href="#!" target="_blank" rel="noopener noreferrer">
-              будь в курсе
-            </a>
-          </li>
-          <li>
-            <a href="#!" target="_blank" rel="noopener noreferrer">
-              анонсы
-            </a>
-          </li>
-          <li>
-            <a href="#!" target="_blank" rel="noopener noreferrer">
-              партнеры
-            </a>
-          </li>
-          <li>
-            <a href="#!" target="_blank" rel="noopener noreferrer">
-              контакты
-            </a>
-          
-          </li>
-        </ul>
+          {/* ********************************* */}
+
+          {/* кнопка закрытия окна */}
+          <button className={navCss.close__btn} onClick={closeMenu}>
+            &times;
+            {/* close */}
+          </button>
+          {/* <Routes> */}
+            {/* пункты меню */}
+            <ul className={navCss.list__menu}>
+              <li>
+                {/* ссылка в React */}
+              <NavLink
+                to="/о нас"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  о нас
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/будь в курсе"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  будь в курсе
+                </NavLink>
+              </li>
+              <li>
+              <NavLink
+                to="/анонсы"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                  анонсы
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/партнеры"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  партнеры
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/контакты"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  контакты
+                </NavLink>
+              </li>
+            </ul>
+          {/* </Routes> */}
+        </div>
+        {/* =============== MODAL MENU */}
       </div>
-      {/* =============== MODAL MENU */}
-    </div>
+    // </BrowserRouter>
   );
 };
 

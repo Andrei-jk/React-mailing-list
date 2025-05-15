@@ -25,14 +25,7 @@
   z-index: -1;
   transition: 0.6s ease;
   transform: scaleX(0);
-  -webkit-transition: 0.6s ease;
-  -moz-transition: 0.6s ease;
-  -ms-transition: 0.6s ease;
-  -o-transition: 0.6s ease;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+ 
 }
 .nav__btn:hover::before {
   transform: scaleX(1);
@@ -56,10 +49,7 @@
   overflow: hidden;
   /*Анимация для высоты и прозрачности*/
   transition: height 1.8s ease, opacity 2.8s ease;
-  -webkit-transition: height 1.8s ease, opacity 2.8s ease;
-  -moz-transition: height 1.8s ease, opacity 2.8s ease;
-  -ms-transition: height 1.8s ease, opacity 2.8s ease;
-  -o-transition: height 1.8s ease, opacity 2.8s ease;
+
   opacity: 0;
   overflow: auto;
 }
@@ -70,10 +60,7 @@
   opacity: 1;
   /*Полная видимость*/
   transition: height 2.8s ease, opacity 0.8s ease;
-  -webkit-transition: height 2.8s ease, opacity 0.8s ease;
-  -moz-transition: height 2.8s ease, opacity 0.8s ease;
-  -ms-transition: height 2.8s ease, opacity 0.8s ease;
-  -o-transition: height 2.8s ease, opacity 0.8s ease;
+  
 }
 
 .close__btn {
