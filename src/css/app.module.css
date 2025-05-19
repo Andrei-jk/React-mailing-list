@@ -24,6 +24,19 @@
 }
 /* fonts */
 
+html{
+  /* данные настройки обязательны */
+  min-height: 100vh;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
+  min-height: 100vh;
+  max-width: 100%;
   font-family: "EastmanTrial", Arial, Helvetica, sans-serif;
+  /* эти настройки позволяют выстроить основные блоки по flex, что прижимает footer к низу страницы   */
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
 }

@@ -1,0 +1,19 @@
+:root {
+  /* colors */
+--gradientColor:linear-gradient(
+    132.1deg,
+    rgb(147, 231, 54) -28.477%,
+    rgb(19, 161, 108) 105.673%
+  );
+  --basicColor:rgb(255, 255, 255);
+  --auxiliaryColor:rgb(21, 182, 142);
+  --additionalColor:rgb(251, 215, 72);
+  --secondaryColor:rgb(231, 48, 48);
+  --labelColor: rgb(46, 53, 61);
+  --btnsSubscription:#9c50e3;
+  --gradientLogoColor:linear-gradient(
+    131.38deg,
+    rgb(21, 182, 142) 8.558%,
+    rgb(24, 181, 220) 87.986%
+  );
+}

@@ -18,11 +18,7 @@
   width: 105%;
   height: 100%;
   /* background: rgb(21, 182, 142); */
-  background: linear-gradient(
-    131.38deg,
-    rgb(21, 182, 142) 8.558%,
-    rgb(24, 181, 220) 87.986%
-  );
+  background:var(--gradientLogoColor); 
   border-radius: 10px;
   z-index: -1;
   transition: 0.8s ease;
@@ -42,11 +38,7 @@
   height: 0;
   top: 0;
   left: 0;
-  background: linear-gradient(
-    131.38deg,
-    rgb(21, 182, 142) 8.558%,
-    rgb(147, 231, 54) 87.986%
-  );
+  background: var(--gradientColor);
   /*Скрываем содержимое*/
   overflow: hidden;
   /*Анимация для высоты и прозрачности*/
@@ -80,7 +72,7 @@
   background: none;
   width: 55px;
   height: 55px;
-  color: white;
+  color: var(--basicColor);
 
 }
 .close__btn:active{
@@ -96,7 +88,7 @@
 
 .list__menu a {
   display: block;
-  color: white;
+  color: var(--basicColor);
   margin: 50px 25px 0 25px;
   font-size: 50px;
 
