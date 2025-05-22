@@ -1,13 +1,35 @@
-.header{
-   /* чтобы header был всегда наверху и не убегал при скроле, его надо зафиксировать */
-   position: fixed;
-   /* приподнять  */
-   z-index: 5;
-   /* прижать к левому краю */
-   top: 0;
-   left: 0;
-   /* растянуть на весь экран */
-   width: 100%;
-   display: flex;
-   
+.header {
+  /* чтобы header был всегда наверху и не убегал при скроле, его надо зафиксировать */
+  position: fixed;
+  /* приподнять  */
+  z-index: 5;
+  /* прижать к левому краю */
+  top: 0;
+  left: 0;
+  /* растянуть на весь экран */
+  width: 100%;
+  display: flex;
+  transition: 0.7s linear;
+  backdrop-filter: blur(20px);
+  /* Свойство CSS backdrop-filter позволяет применять эффект фильтра к области за элементом. Конструкция backdrop-filter: blur(20px); создаёт размытие заднего фона на 20 пикселей. 
+    Элемент с backdrop-filter должен быть полупрозрачным (например, с помощью background-color: rgba(...)), чтобы эффект был виден.  Создает эффект размытия, который придаёт глубину и помогает выделить элемент на фоне. Часто используется в модальных окнах, карточках и меню.  Использование backdrop-filter может влиять на производительность, особенно на мобильных устройствах. */
+}
+/* для того, чтобы при скроле HEADER добавлялся эффект тени, запишем */
+.header.sticky {
+  background: rgb(156, 80, 227, 0.3);
+  box-shadow: 0 0 10px rgba(110, 48, 209, 0.5);
+}
+.container {
+  max-width: 1064px;
+  width: 100%;
+  padding: 0 15px;
+  max-width: 0 auto;
+  margin-bottom: 164px;
+}
+.header__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.7s linear;
+  padding-top: 40px;
 }
