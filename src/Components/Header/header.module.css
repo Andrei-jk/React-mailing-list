@@ -1,13 +1,42 @@
-.header{
-   /* чтобы header был всегда наверху и не убегал при скроле, его надо зафиксировать */
-   position: fixed;
-   /* приподнять  */
-   z-index: 5;
-   /* прижать к левому краю */
-   top: 0;
-   left: 0;
-   /* растянуть на весь экран */
-   width: 100%;
-   display: flex;
+.header {
+  /* чтобы header был всегда наверху и не убегал при скроле, его надо зафиксировать */
+  position: fixed;
+  /* приподнять  */
+  z-index: 5;
+  /* прижать к левому краю */
+  top: 0;
+  left: 0;
+  /* растянуть на весь экран */
+  width: 100%;
+  /* display: flex; */
+  backdrop-filter: blur(20px);
+  /* Свойство CSS backdrop-filter позволяет применять эффект фильтра к области за элементом. Конструкция backdrop-filter: blur(20px); создаёт размытие заднего фона на 20 пикселей
    
+   Создает эффект размытия, который придаёт глубину и помогает выделить элемент на фоне.
+   Часто используется в модальных окнах, карточках и меню.
+
+    Производительность: Использование backdrop-filter может влиять на производительность, особенно на мобильных устройствах.
+    Доступность: Убедитесь, что текст остаётся читаемым и контрастным на размытом фоне.
+ */
+  transition: 0.7s linear;
+}
+/* для того, чтобы при скроле header выделялся, добавим класс */
+.header.sticky {
+  background: var(--additionalColor, 0.2);
+  box-shadow: 0 10px 10px var(--additionalColor);
+}
+
+.container {
+  max-width: 1064px;
+  width: 100%;
+  margin: 0 auto;
+  /* background-color: salmon; */
+  padding: 0 15px;
+}
+.header__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.7s linear;
+  padding: 40px 0 50px 0;
 }

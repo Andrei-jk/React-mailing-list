@@ -153,12 +153,12 @@ css
 .modalContainer {
   position: fixed;
   width: 100vw;
-  /*Начальнаявысота*/
+  /*Начальная высота*/
   height: 0;
   top: 0;
   left: 0;
   background: var(--auxiliaryColor);
-  /*центруем*/
+  /*центрируем*/
   display: flex;
   justify-content: center;
   align-items: center;

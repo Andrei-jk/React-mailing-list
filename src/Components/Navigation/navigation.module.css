@@ -45,7 +45,8 @@
   transition: height 1.8s ease, opacity 2.8s ease;
 
   opacity: 0;
-  overflow: auto;
+  /* overflow: auto; */
+  z-index: 1;
 }
 
 .menu.open {
