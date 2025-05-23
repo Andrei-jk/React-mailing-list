@@ -16,4 +16,13 @@
     rgb(21, 182, 142) 8.558%,
     rgb(24, 181, 220) 87.986%
   );
+  /* texts */
+  --font1: font-family: 'Aeroport Mono';
+  /* src: url('./../fonts/aeroportmono.otf') format('opentype'); */
+  --font2: font-family: 'Eastman Trial';
+    /* src: url('./../fonts/EastmanTrial-Bold.otf') format('opentype'); */
+  
+    /* src: url('./../fonts/EastmanTrial-Medium.otf') format('opentype'); */
+  
+    /* src: url('./../fonts/EastmanTrial-Regular.otf') format('opentype'); */
 }

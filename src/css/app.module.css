@@ -19,7 +19,7 @@
 
 @font-face {
     font-family: 'Eastman Trial';
-    font-weight: bold;
+    /* font-weight: bold; */
     src: url('./../fonts/EastmanTrial-Regular.otf') format('opentype');
 }
 /* fonts */
