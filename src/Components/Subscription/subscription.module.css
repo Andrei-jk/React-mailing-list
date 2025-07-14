@@ -184,6 +184,7 @@ css
   animation: modalOpen 3.5s ease both;
   /* для того, чтобы открытая модалка скролилась, надо добавить overflow-y:auto */
   overflow-y: auto;
+  z-index: 2;
 }
 
 .modalContainer.closing {
@@ -193,7 +194,8 @@ css
 
 .subscription {
   /* padding: 20px calc(100vw - 100%) 20px 60px; */
-  padding: 45px;
+  padding-top: 45px;
+  padding-bottom: 45px;
   /* width: 80%; */
   /* max-width: 600px; */
   /* max-width: 100%; */

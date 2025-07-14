@@ -8,7 +8,7 @@
   left: 0;
   /* растянуть на весь экран */
   width: 100%;
-  display: flex;
+  /* display: flex; */
   transition: 0.7s linear;
   backdrop-filter: blur(20px);
   /* Свойство CSS backdrop-filter позволяет применять эффект фильтра к области за элементом. Конструкция backdrop-filter: blur(20px); создаёт размытие заднего фона на 20 пикселей. 

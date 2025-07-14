@@ -15,7 +15,8 @@
     131.38deg,
     rgb(21, 182, 142) 8.558%,
     rgb(24, 181, 220) 87.986%
-  );
+    );
+    --textsColor:rgb(0, 0, 0);
   /* texts */
   --font1: font-family: 'Aeroport Mono';
   /* src: url('./../fonts/aeroportmono.otf') format('opentype'); */
