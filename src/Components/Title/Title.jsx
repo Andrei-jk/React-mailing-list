@@ -12,6 +12,8 @@ function Title({ content, additional_class }) {
 }
 
 export default Title;
+
+
 // В вашем коде компонент Title принимает два свойства (props): content и additional_class. Давайте разберем, как применяется additional_class к элементу <h1> и где он может быть описан.
 // Как это работает
 
@@ -74,7 +76,7 @@ export default Title;
 
 // export default Title;
 
-// // Использование компонента
+// Использование компонента
 // <Title content="Hello, World!" additional_class="my-custom-class" />
 
 // Итог

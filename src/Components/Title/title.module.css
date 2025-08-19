@@ -15,9 +15,13 @@
    /* width: clamp(220px, calc(77.434px + 41.22vw), 880px); */
    /* max-width: clamp(220px, calc(94.864px + 34.98vw), 780px); */
   margin: 0 auto;
-  padding-bottom: 125px;
+  padding-bottom: 75px;
 }
 
+
+.title__business{
+    color: red;
+}
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
  /* ! Как правильно пересчитать 5.531rem?
     rem всегда привязан к font-size элемента <html>.
