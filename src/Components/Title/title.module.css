@@ -3,27 +3,71 @@
   color: var(--textsColor);
   font-family: var(--font2);
   /* font-family: Eastman; */
-  font-size: clamp(16px, 0.402rem + 3vw, 64px);
+  font-size: clamp(16px, calc(0.402rem + 3vw), 64px);
   font-weight: 400;
-  line-height: clamp(22px, 0.578rem + 4vw, 86px);
+  line-height: clamp(22px, calc(0.578rem + 4vw), 86px);
   text-align: center;
 
   /* width: 880px; */
   /* max-width: 780px; */
   /* !Очень важно = в данном примере чтобы отображалось и в Chrome и в Firefox адаптивно и одинаково, значение 90.434px подбиралось рандомно от первоначального выданного https://min-max-calculator.9elements.com/?220,570,319,1920 */
-  max-width:clamp(220px, calc(90.434px + 41.22vw), 880px);
-   /* width: clamp(220px, calc(77.434px + 41.22vw), 880px); */
-   /* max-width: clamp(220px, calc(94.864px + 34.98vw), 780px); */
+  max-width: clamp(220px, calc(90.434px + 41.22vw), 880px);
+  /* width: clamp(220px, calc(77.434px + 41.22vw), 880px); */
+  /* max-width: clamp(220px, calc(94.864px + 34.98vw), 780px); */
   margin: 0 auto;
-  padding-bottom: 75px;
+  padding-bottom: 30px;
 }
 
-
-.title__business{
-    color: red;
+.add_class{
+  color: var(--textsColor);
+  font-family: var(--font2);
+  font-size: clamp(16px, calc(0.402rem + 3vw), 64px);
+  /* font-size: 64px; */
+  font-weight: 600;
+  /* line-height: 86px; */
+  line-height: clamp(22px, calc(0.578rem + 4vw), 86px);
+  text-align: left;
+  margin-top: clamp(65px, calc(2.668rem + 7vw), 177px);
+  /* margin-left: clamp(10px, calc(-1.262rem + 16.68vw), 220px); */
+  margin-left: clamp(33px, calc(-1.262rem + 16.68vw), 220px);
+  /* margin-left: 220px; */
+  padding: 0;
+  margin-bottom: 30px;
+  max-width: 977px;
+  /* ! === */
+  white-space: normal; /* Разрешает перенос строк */
+  overflow-wrap: break-word; /* Современное свойство для переноса */
+  /* ! === */
 }
+.test {
+  border: 3px solid greenyellow;
+}
+/* .text_container {
+  margin: 0 auto;
+   max-width: clamp(220px, calc(90.434px + 41.22vw), 880px);
+} */
+.subtitle {
+  /* color: rgb(17, 0, 255); */
+  color: var(--textsColor);
+  font-family: var(--font2);
+  /* font-size: 24px; */
+  font-size: clamp(12px, calc(0.601rem + 0.75vw), 24px);
+  font-weight: 400;
+  line-height: clamp(15px, calc(0.751rem + 0.94vw), 30px);
+  text-align: left;
+   /* max-width: clamp(260px, calc(11.393rem + 24.36vw), 650px); */
+   max-width: 620px;
+  /* ! === */
+  white-space: normal; /* Разрешает перенос строк */
+  overflow-wrap: break-word; /* Современное свойство для переноса */
+  /* ! === */
+  /* margin-left: clamp(33px, calc(-1.262rem + 16.68vw), 300px); */
+  margin-left: clamp(33px, calc(-1.262rem + 16.68vw), 220px);
+
+}
+
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
- /* ! Как правильно пересчитать 5.531rem?
+/* ! Как правильно пересчитать 5.531rem?
     rem всегда привязан к font-size элемента <html>.
     → 5.531rem = 5.531 * 14px = 77.434px (а не 88.5px).
     где 14px это размер шрифта заданного для всего HTML
@@ -126,4 +170,3 @@ css
 /* ❌ Рискованно */
 /* width: clamp(220px, 5.531rem + 41.22vw, 880px); 
 */
- 

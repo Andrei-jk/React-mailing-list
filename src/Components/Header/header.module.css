@@ -33,6 +33,31 @@
   justify-content: space-between;
   align-items: center;
   transition: 0.7s linear;
-  padding: 40px 0 50px 0;
+  /* padding: 40px 0 50px 0; */
+  padding: 40px 0 164px 0;
   background-color: darkgray;
+}
+/* круг в header */
+.small_circle{
+  position: absolute;
+ width: clamp(210px, 157.13px + 9.5vw, 362px);
+height: clamp(210px, 157.13px + 9.5vw, 362px);
+ /* width: 210px;
+height: 210px; */
+/* width: 362px; */
+/* height: 362px; */
+/* width: 256.73px;
+height: 256.73px; */
+transform: rotate(37.41deg);
+background: linear-gradient(131.38deg, rgba(21, 182, 142, 1),rgba(147, 231, 54, 1) 100%);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+/* top: 184px; */
+top: 134px;
+/* top: 175px; */
+/* left: -130px; */
+left: -164px;
+/* left: -135px; */
 }

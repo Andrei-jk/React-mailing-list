@@ -1,18 +1,25 @@
 import titleCss from "./title.module.css";
 
-function Title({ content, additional_class }) {
+function Title({ content, subcontent, additional_class, test_class, subcontent_class }) {
   return (
-    <h1
-      className={`${titleCss.header__title}
-         ${additional_class}`}
-    >
-      {content}
-    </h1>
+    // <div className={titleCss.text_container}>
+    <div>
+      <h1
+        className={`
+            ${titleCss.header__title}
+            ${additional_class}
+            ${test_class}`}
+      >
+        {content}
+      </h1>
+      {/* <div className={titleCss.textContainer}> */}
+        <h4 className={titleCss.subtitle }>{subcontent}</h4>
+      {/* </div> */}
+    </div>
   );
 }
 
 export default Title;
-
 
 // В вашем коде компонент Title принимает два свойства (props): content и additional_class. Давайте разберем, как применяется additional_class к элементу <h1> и где он может быть описан.
 // Как это работает
